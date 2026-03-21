@@ -5,10 +5,12 @@ Backend API moderno con Express.js y JWT authentication.
 ## 🚀 Características
 
 - **Express.js** - Framework web minimalista
-- **JWT Authentication** - Autenticación segura
-- **Middleware** - Protección de rutas
-- **CORS** - Cross-origin requests
-- **Validation** - Validación de datos
+- **JWT Authentication** - Autenticación segura con tokens
+- **Helmet** - Headers de seguridad HTTP
+- **CORS** - Control de accesos cross-origin
+- **Rate Limiting** - Protección contra DDoS
+- **Validation** - Validación de datos con Joi
+- **Logging** - Morgan + Winston
 - **Docker** - Despliegue contenerizado
 
 ## 📦 Instalación
@@ -72,6 +74,31 @@ curl http://localhost:3000/api/users \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
+## 🔒 Seguridad
+
+### Headers de Seguridad (Helmet)
+- ✅ Content Security Policy
+- ✅ X-Frame-Options
+- ✅ X-Content-Type-Options
+- ✅ X-XSS-Protection
+- ✅ Strict-Transport-Security
+
+### Rate Limiting
+- ✅ Límite de requests por IP
+- ✅ Headers estándar (RateLimit-*)
+
+### Autenticación JWT
+- ✅ Tokens con expiración
+- ✅ Hash de contraseñas con bcrypt
+- ✅ Middleware de verificación de token
+
+### Recomendaciones para Producción
+1. Usar HTTPS con certificado válido
+2. Configurar CORS con orígenes específicos
+3. Cambiar JWT_SECRET por valor seguro
+4. Implementar refresh tokens
+5. Usar variables de entorno para secrets
+
 ## 🧪 Testing
 
 ```bash
@@ -120,3 +147,8 @@ docker run -p 3000:3000 \
 ## 📝 Licencia
 
 MIT - Alejandro Kore
+
+## 🤖 Actualizado por
+
+OpenClaw AI Assistant - 2026-03-21
+*Mejoras: Headers de seguridad Helmet, rate limiting, logging*

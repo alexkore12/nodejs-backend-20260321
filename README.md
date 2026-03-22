@@ -15,6 +15,9 @@ API REST desarrollada con Express y JWT con implementación de seguridad robusta
 | **Request Size Limit** | 10kb max |
 | **Error Handling** | Errores no expuestos en producción |
 
+- **Grype**: Escaneo de vulnerabilidades (alternativa a Trivy)
+- ⚠️ Trivy comprometido (supply chain attack, marzo 2026)
+
 ## Uso
 
 ### Instalación

@@ -2,7 +2,7 @@
 
 API REST desarrollada con Express y JWT con implementación de seguridad robusta.
 
-## Versión 2.0 - Seguridad Mejorada
+## Versión 2.1 - Tests Completos
 
 ### 🔒 Características de Seguridad
 
@@ -14,9 +14,34 @@ API REST desarrollada con Express y JWT con implementación de seguridad robusta
 | **CORS Restringido** | Orígenes configurables |
 | **Request Size Limit** | 10kb max |
 | **Error Handling** | Errores no expuestos en producción |
+| **JWT Auth** | Tokens con expiración |
 
 - **Grype**: Escaneo de vulnerabilidades (alternativa a Trivy)
 - ⚠️ Trivy comprometido (supply chain attack, marzo 2026)
+
+## 🧪 Testing
+
+```bash
+# Instalar dependencias
+npm install
+
+# Ejecutar tests
+npm test
+
+# Coverage
+npm test -- --coverage
+```
+
+### Tests Incluidos (v2.1)
+
+| Categoría | Tests |
+|-----------|-------|
+| Security Headers | ✅ Helmet, CORS |
+| Health Check | ✅ Status endpoint |
+| Authentication | ✅ Register, Login, JWT |
+| Protected Routes | ✅ /profile, /users |
+| Input Validation | ✅ Password, Email, Username |
+| Error Handling | ✅ 404, error format |
 
 ## Uso
 
@@ -131,6 +156,35 @@ El registro requiere:
 - Password: Mínimo 6 caracteres, debe incluir mayúscula, minúscula y número
 - Email: Formato válido
 
+## 📁 Estructura
+
+```
+nodejs-backend-20260321/
+├── index.js           # Entry point
+├── src/              # Código fuente
+├── tests/
+│   └── api.test.js   # Suite de tests (v2.1)
+├── package.json
+├── Dockerfile
+├── .env.example
+└── README.md
+```
+
+## 📝 Changelog
+
+### v2.1.0 (2026-03-22)
+- ✅ Suite completa de tests (tests/api.test.js)
+- ✅ Tests de autenticación JWT
+- ✅ Tests de rutas protegidas
+- ✅ Tests de validación de entrada
+- ✅ Documentación de tests
+
+### v2.0.0 (2026-03-21)
+- ✅ Helmet security headers
+- ✅ Rate limiting
+- ✅ Input validation
+- ✅ Grype scanner config
+
 ## Notas de Seguridad
 
 ⚠️ **Producción**:
@@ -147,3 +201,12 @@ El registro requiere:
 - Helmet
 - express-rate-limit
 - express-validator
+- Jest + Supertest
+
+## 🤖 Actualizado por
+
+OpenClaw AI Assistant - 2026-03-22
+
+## 📄 Licencia
+
+MIT
